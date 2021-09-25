@@ -21,62 +21,11 @@ class App(QWidget):
 
         self.feel()
         self.recAct()
-
-        class App(QDialog):
-
-            def __init__(self):
-                super().__init__()
-                self.title = 'life app'
-                self.left = 2000
-                self.top = 10
-                self.width = 320
-                self.height = 100
-                self.initUI()
-
-            def initUI(self):
-                self.setWindowTitle(self.title)
-                self.setGeometry(self.left, self.top, self.width, self.height)
-
-                self.createHorizontalLayout()
-
-                windowLayout = QVBoxLayout()
-                windowLayout.addWidget(self.horizontalGroupBox)
-                self.setLayout(windowLayout)
-
-                self.show()
-
-
-            def createHorizontalLayout(self):
-                self.horizontalGroupBox = QGroupBox("Wokrout/Yoga")
-                layout = QHBoxLayout()
-
-                buttonBlue = QPushButton('No', self)
-                buttonBlue.clicked.connect(self.on_click_n)
-                layout.addWidget(buttonBlue)
-
-                buttonRed = QPushButton('Yes', self)
-                buttonRed.clicked.connect(self.on_click_y)
-                layout.addWidget(buttonRed)
-
-
-                self.horizontalGroupBox.setLayout(layout)
-
-            @pyqtSlot()
-            def on_click_n(self):
-                print('n')
-                self.close()
-
-            @pyqtSlot()
-            def on_click_y(self):
-                print('y')
-                self.close()
-
-        if __name__ == '__main__':
-            app = QApplication(sys.argv)
-            ex = App()
-            sys.exit(app.exec_())
-
-
+        self.workoutYoga()
+        self.rwd()
+        self.hardware()
+        self.software()
+        self.veggies()
         self.nexAct()
         self.show()
 
@@ -91,6 +40,31 @@ class App(QWidget):
         if okPressed and text != '':
             print(text)
 
+    def workoutYoga(self):
+        text, okPressed = QInputDialog.getText(self, "Get text", "Workout/Yoga: ", QLineEdit.Normal, "")
+        if okPressed and text != '':
+            print(text)
+
+    def rwd(self):
+        text, okPressed = QInputDialog.getText(self, "Get text", "Read/Write/Draw: ", QLineEdit.Normal, "")
+        if okPressed and text != '':
+            print(text)
+
+    def hardware(self):
+        text, okPressed = QInputDialog.getText(self, "Get text", "Harwdware: ", QLineEdit.Normal, "")
+        if okPressed and text != '':
+            print(text)
+
+    def software(self):
+        text, okPressed = QInputDialog.getText(self, "Get text", "Software: ", QLineEdit.Normal, "")
+        if okPressed and text != '':
+            print(text)
+
+    def veggies(self):
+        text, okPressed = QInputDialog.getText(self, "Get text", "veggies: ", QLineEdit.Normal, "")
+        if okPressed and text != '':
+            print(text)
+
     def nexAct(self):
         text, okPressed = QInputDialog.getText(self, "Get text", "Next activity: ", QLineEdit.Normal, "")
         if okPressed and text != '':
@@ -98,8 +72,8 @@ class App(QWidget):
 
 
 
-
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     ex = App()
     sys.exit(app.exec_())
+
