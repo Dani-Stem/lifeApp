@@ -26,8 +26,8 @@ class App(QWidget):
 
             def __init__(self):
                 super().__init__()
-                self.title = 'PyQt5 layout - pythonspot.com'
-                self.left = 10
+                self.title = 'life app'
+                self.left = 2000
                 self.top = 10
                 self.width = 320
                 self.height = 100
@@ -45,27 +45,31 @@ class App(QWidget):
 
                 self.show()
 
+
             def createHorizontalLayout(self):
-                self.horizontalGroupBox = QGroupBox("What is your favorite color?")
+                self.horizontalGroupBox = QGroupBox("Wokrout/Yoga")
                 layout = QHBoxLayout()
 
-                buttonBlue = QPushButton('Blue', self)
-                buttonBlue.clicked.connect(self.on_click)
+                buttonBlue = QPushButton('No', self)
+                buttonBlue.clicked.connect(self.on_click_n)
                 layout.addWidget(buttonBlue)
 
-                buttonRed = QPushButton('Red', self)
-                buttonRed.clicked.connect(self.on_click)
+                buttonRed = QPushButton('Yes', self)
+                buttonRed.clicked.connect(self.on_click_y)
                 layout.addWidget(buttonRed)
 
-                buttonGreen = QPushButton('Green', self)
-                buttonGreen.clicked.connect(self.on_click)
-                layout.addWidget(buttonGreen)
 
                 self.horizontalGroupBox.setLayout(layout)
 
             @pyqtSlot()
-            def on_click(self):
-                print('PyQt5 button click')
+            def on_click_n(self):
+                print('n')
+                self.close()
+
+            @pyqtSlot()
+            def on_click_y(self):
+                print('y')
+                self.close()
 
         if __name__ == '__main__':
             app = QApplication(sys.argv)
