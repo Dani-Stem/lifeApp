@@ -71,38 +71,38 @@ with con:
     for value in allGoals0:
         allGoals = value[0]
 
-    # client = texttospeech.TextToSpeechClient()
-    # synthesis_input = texttospeech.SynthesisInput(text="how do you feel")
-    # voice = texttospeech.VoiceSelectionParams(
-    #     language_code="en-US", ssml_gender=texttospeech.SsmlVoiceGender.NEUTRAL
-    # )
-    # audio_config = texttospeech.AudioConfig(
-    #     audio_encoding=texttospeech.AudioEncoding.MP3
-    # )
-    # response = client.synthesize_speech(
-    #     input=synthesis_input, voice=voice, audio_config=audio_config
-    # )
-    # with open("output.mp3", "wb") as out:
-    #     out.write(response.audio_content)
-    #     playsound('/home/dani/Desktop/jar/output.mp3')
+    client = texttospeech.TextToSpeechClient()
+    synthesis_input = texttospeech.SynthesisInput(text="how do you feel")
+    voice = texttospeech.VoiceSelectionParams(
+        language_code="en-US", ssml_gender=texttospeech.SsmlVoiceGender.NEUTRAL
+    )
+    audio_config = texttospeech.AudioConfig(
+        audio_encoding=texttospeech.AudioEncoding.MP3
+    )
+    response = client.synthesize_speech(
+        input=synthesis_input, voice=voice, audio_config=audio_config
+    )
+    with open("output.mp3", "wb") as out:
+        out.write(response.audio_content)
+    playsound('/home/dani/Desktop/jar/output.mp3')
 
     mood = input("how do you feel? ")
     con.execute(f"update life_app_main set mood='{mood}' where id={currId}")
 
-    # client = texttospeech.TextToSpeechClient()
-    # synthesis_input = texttospeech.SynthesisInput(text="recent activity")
-    # voice = texttospeech.VoiceSelectionParams(
-    #     language_code="en-US", ssml_gender=texttospeech.SsmlVoiceGender.NEUTRAL
-    # )
-    # audio_config = texttospeech.AudioConfig(
-    #     audio_encoding=texttospeech.AudioEncoding.MP3
-    # )
-    # response = client.synthesize_speech(
-    #     input=synthesis_input, voice=voice, audio_config=audio_config
-    # )
-    # with open("output.mp3", "wb") as out:
-    #     out.write(response.audio_content)
-    #     playsound('/home/dani/Desktop/jar/output.mp3')
+    client = texttospeech.TextToSpeechClient()
+    synthesis_input = texttospeech.SynthesisInput(text="recent activity")
+    voice = texttospeech.VoiceSelectionParams(
+        language_code="en-US", ssml_gender=texttospeech.SsmlVoiceGender.NEUTRAL
+    )
+    audio_config = texttospeech.AudioConfig(
+        audio_encoding=texttospeech.AudioEncoding.MP3
+    )
+    response = client.synthesize_speech(
+        input=synthesis_input, voice=voice, audio_config=audio_config
+    )
+    with open("output.mp3", "wb") as out:
+        out.write(response.audio_content)
+    playsound('/home/dani/Desktop/jar/output.mp3')
 
     recAct = input("most recent activity: ")
     con.execute(f"update life_app_main set recent_activity='{recAct}' where id={currId}")
@@ -110,20 +110,20 @@ with con:
 
     if countWorkoutYoga == 0:
 
-        # client = texttospeech.TextToSpeechClient()
-        # synthesis_input = texttospeech.SynthesisInput(text="workout or yoga")
-        # voice = texttospeech.VoiceSelectionParams(
-        #     language_code="en-US", ssml_gender=texttospeech.SsmlVoiceGender.NEUTRAL
-        # )
-        # audio_config = texttospeech.AudioConfig(
-        #     audio_encoding=texttospeech.AudioEncoding.MP3
-        # )
-        # response = client.synthesize_speech(
-        #     input=synthesis_input, voice=voice, audio_config=audio_config
-        # )
-        # with open("output.mp3", "wb") as out:
-        #     out.write(response.audio_content)
-        #     playsound('/home/dani/Desktop/jar/output.mp3')
+        client = texttospeech.TextToSpeechClient()
+        synthesis_input = texttospeech.SynthesisInput(text="workout or yoga")
+        voice = texttospeech.VoiceSelectionParams(
+            language_code="en-US", ssml_gender=texttospeech.SsmlVoiceGender.NEUTRAL
+        )
+        audio_config = texttospeech.AudioConfig(
+            audio_encoding=texttospeech.AudioEncoding.MP3
+        )
+        response = client.synthesize_speech(
+            input=synthesis_input, voice=voice, audio_config=audio_config
+        )
+        with open("output.mp3", "wb") as out:
+            out.write(response.audio_content)
+        playsound('/home/dani/Desktop/jar/output.mp3')
 
         workoutYoga = input("work out/yoga: ")
         con.execute(f"update life_app_main set workout_yoga='{workoutYoga}' where id={currId}")
@@ -132,20 +132,20 @@ with con:
 
     if countRwd == 0:
 
-    #     client = texttospeech.TextToSpeechClient()
-    #     synthesis_input = texttospeech.SynthesisInput(text="read, write, draw")
-    #     voice = texttospeech.VoiceSelectionParams(
-    #         language_code="en-US", ssml_gender=texttospeech.SsmlVoiceGender.NEUTRAL
-    #     )
-    #     audio_config = texttospeech.AudioConfig(
-    #         audio_encoding=texttospeech.AudioEncoding.MP3
-    #     )
-    #     response = client.synthesize_speech(
-    #         input=synthesis_input, voice=voice, audio_config=audio_config
-    #     )
-    #     with open("output.mp3", "wb") as out:
-    #         out.write(response.audio_content)
-    #         playsound('/home/dani/Desktop/jar/output.mp3')
+        client = texttospeech.TextToSpeechClient()
+        synthesis_input = texttospeech.SynthesisInput(text="read, write, draw")
+        voice = texttospeech.VoiceSelectionParams(
+            language_code="en-US", ssml_gender=texttospeech.SsmlVoiceGender.NEUTRAL
+        )
+        audio_config = texttospeech.AudioConfig(
+            audio_encoding=texttospeech.AudioEncoding.MP3
+        )
+        response = client.synthesize_speech(
+            input=synthesis_input, voice=voice, audio_config=audio_config
+        )
+        with open("output.mp3", "wb") as out:
+            out.write(response.audio_content)
+        playsound('/home/dani/Desktop/jar/output.mp3')
 
         rwd = input("read/write/draw: ")
         con.execute(f"update life_app_main set rwd='{rwd}' where id={currId}")
@@ -167,7 +167,7 @@ with con:
         )
         with open("output.mp3", "wb") as out:
             out.write(response.audio_content)
-            playsound('/home/dani/Desktop/jar/output.mp3')
+        playsound('/home/dani/Desktop/jar/output.mp3')
 
         hardware = input("hardware: ")
         con.execute(f"update life_app_main set hardware='{hardware}' where id={currId}")
@@ -189,7 +189,7 @@ with con:
         )
         with open("output.mp3", "wb") as out:
             out.write(response.audio_content)
-            playsound('/home/dani/Desktop/jar/output.mp3')
+        playsound('/home/dani/Desktop/jar/output.mp3')
 
         software = input("software: ")
         con.execute(f"update life_app_main set software='{software}' where id={currId}")
@@ -211,7 +211,7 @@ with con:
         )
         with open("output.mp3", "wb") as out:
             out.write(response.audio_content)
-            playsound('/home/dani/Desktop/jar/output.mp3')
+        playsound('/home/dani/Desktop/jar/output.mp3')
 
         veggies = input("veggies: ")
         con.execute(f"update life_app_main set veggies='{veggies}' where id={currId}")
@@ -224,20 +224,22 @@ with con:
     else:
         con.execute(f"update life_app_main set all_goal='n' where id={currId};")
 
-        client = texttospeech.TextToSpeechClient()
-        synthesis_input = texttospeech.SynthesisInput(text="next activity")
-        voice = texttospeech.VoiceSelectionParams(
-            language_code="en-US", ssml_gender=texttospeech.SsmlVoiceGender.NEUTRAL
-        )
-        audio_config = texttospeech.AudioConfig(
-            audio_encoding=texttospeech.AudioEncoding.MP3
-        )
-        response = client.synthesize_speech(
-            input=synthesis_input, voice=voice, audio_config=audio_config
-        )
-        with open("output.mp3", "wb") as out:
-            out.write(response.audio_content)
-            playsound('/home/dani/Desktop/jar/output.mp3')
+    con.execute(f"update life_app_main set all_goal='n' where id={currId};")
+
+    client = texttospeech.TextToSpeechClient()
+    synthesis_input = texttospeech.SynthesisInput(text="next activity")
+    voice = texttospeech.VoiceSelectionParams(
+        language_code="en-US", ssml_gender=texttospeech.SsmlVoiceGender.NEUTRAL
+    )
+    audio_config = texttospeech.AudioConfig(
+        audio_encoding=texttospeech.AudioEncoding.MP3
+    )
+    response = client.synthesize_speech(
+        input=synthesis_input, voice=voice, audio_config=audio_config
+    )
+    with open("output.mp3", "wb") as out:
+        out.write(response.audio_content)
+    playsound('/home/dani/Desktop/jar/output.mp3')
 
     nexAct = input("next activity: ")
     con.execute(f"update life_app_main set next_activity='{nexAct}' where id={currId}")
