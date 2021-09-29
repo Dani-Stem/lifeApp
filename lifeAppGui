@@ -1,8 +1,8 @@
 import sys
 import sqlite3 as sl
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QHBoxLayout, QGroupBox, QDialog, QVBoxLayout, QInputDialog, QLineEdit
-from PyQt5.QtGui import QIcon
-from PyQt5.QtCore import pyqtSlot
+from playsound import playsound
+from google.cloud import texttospeech
 
 con = sl.connect('lifeApp.db')
 
@@ -144,6 +144,22 @@ class App(QWidget):
 
 
     def feel(self):
+
+        client = texttospeech.TextToSpeechClient()
+        synthesis_input = texttospeech.SynthesisInput(text="how do you feel")
+        voice = texttospeech.VoiceSelectionParams(
+            language_code="en-US", ssml_gender=texttospeech.SsmlVoiceGender.NEUTRAL
+        )
+        audio_config = texttospeech.AudioConfig(
+            audio_encoding=texttospeech.AudioEncoding.MP3
+        )
+        response = client.synthesize_speech(
+            input=synthesis_input, voice=voice, audio_config=audio_config
+        )
+        with open("output.mp3", "wb") as out:
+            out.write(response.audio_content)
+        playsound('/home/dani/Desktop/jar/output.mp3')
+
         text, okPressed = QInputDialog.getText(self, "Get text", "How do you feel: ", QLineEdit.Normal, "")
         with con:
             if okPressed and text != '':
@@ -151,6 +167,22 @@ class App(QWidget):
                 con.execute(f"update life_app_main set mood='{mood}' where id={currId}")
 
     def recAct(self):
+
+        client = texttospeech.TextToSpeechClient()
+        synthesis_input = texttospeech.SynthesisInput(text="recent activity")
+        voice = texttospeech.VoiceSelectionParams(
+            language_code="en-US", ssml_gender=texttospeech.SsmlVoiceGender.NEUTRAL
+        )
+        audio_config = texttospeech.AudioConfig(
+            audio_encoding=texttospeech.AudioEncoding.MP3
+        )
+        response = client.synthesize_speech(
+            input=synthesis_input, voice=voice, audio_config=audio_config
+        )
+        with open("output.mp3", "wb") as out:
+            out.write(response.audio_content)
+        playsound('/home/dani/Desktop/jar/output.mp3')
+
         text, okPressed = QInputDialog.getText(self, "Get text", "Most recent activity: ", QLineEdit.Normal, "")
         with con:
             if okPressed and text != '':
@@ -158,6 +190,22 @@ class App(QWidget):
                 con.execute(f"update life_app_main set recent_activity='{recAct}' where id={currId}")
 
     def workoutYoga(self):
+
+        client = texttospeech.TextToSpeechClient()
+        synthesis_input = texttospeech.SynthesisInput(text="workout or yoga")
+        voice = texttospeech.VoiceSelectionParams(
+            language_code="en-US", ssml_gender=texttospeech.SsmlVoiceGender.NEUTRAL
+        )
+        audio_config = texttospeech.AudioConfig(
+            audio_encoding=texttospeech.AudioEncoding.MP3
+        )
+        response = client.synthesize_speech(
+            input=synthesis_input, voice=voice, audio_config=audio_config
+        )
+        with open("output.mp3", "wb") as out:
+            out.write(response.audio_content)
+        playsound('/home/dani/Desktop/jar/output.mp3')
+
         text, okPressed = QInputDialog.getText(self, "Get text", "Workout/Yoga: ", QLineEdit.Normal, "")
         with con:
             if okPressed and text != '':
@@ -165,6 +213,22 @@ class App(QWidget):
                 con.execute(f"update life_app_main set workout_yoga='{workoutYoga}' where id={currId}")
 
     def rwd(self):
+
+        client = texttospeech.TextToSpeechClient()
+        synthesis_input = texttospeech.SynthesisInput(text="Read Write draw")
+        voice = texttospeech.VoiceSelectionParams(
+            language_code="en-US", ssml_gender=texttospeech.SsmlVoiceGender.NEUTRAL
+        )
+        audio_config = texttospeech.AudioConfig(
+            audio_encoding=texttospeech.AudioEncoding.MP3
+        )
+        response = client.synthesize_speech(
+            input=synthesis_input, voice=voice, audio_config=audio_config
+        )
+        with open("output.mp3", "wb") as out:
+            out.write(response.audio_content)
+        playsound('/home/dani/Desktop/jar/output.mp3')
+
         text, okPressed = QInputDialog.getText(self, "Get text", "Read/Write/Draw: ", QLineEdit.Normal, "")
         with con:
             if okPressed and text != '':
@@ -172,6 +236,22 @@ class App(QWidget):
                 con.execute(f"update life_app_main set rwd='{rwd}' where id={currId}")
 
     def hardware(self):
+
+        client = texttospeech.TextToSpeechClient()
+        synthesis_input = texttospeech.SynthesisInput(text="hardware")
+        voice = texttospeech.VoiceSelectionParams(
+            language_code="en-US", ssml_gender=texttospeech.SsmlVoiceGender.NEUTRAL
+        )
+        audio_config = texttospeech.AudioConfig(
+            audio_encoding=texttospeech.AudioEncoding.MP3
+        )
+        response = client.synthesize_speech(
+            input=synthesis_input, voice=voice, audio_config=audio_config
+        )
+        with open("output.mp3", "wb") as out:
+            out.write(response.audio_content)
+        playsound('/home/dani/Desktop/jar/output.mp3')
+
         text, okPressed = QInputDialog.getText(self, "Get text", "Harwdware: ", QLineEdit.Normal, "")
         with con:
             if okPressed and text != '':
@@ -179,18 +259,68 @@ class App(QWidget):
                 con.execute(f"update life_app_main set hardware='{hardware}' where id={currId}")
 
     def software(self):
+
+        client = texttospeech.TextToSpeechClient()
+        synthesis_input = texttospeech.SynthesisInput(text="software")
+        voice = texttospeech.VoiceSelectionParams(
+            language_code="en-US", ssml_gender=texttospeech.SsmlVoiceGender.NEUTRAL
+        )
+        audio_config = texttospeech.AudioConfig(
+            audio_encoding=texttospeech.AudioEncoding.MP3
+        )
+        response = client.synthesize_speech(
+            input=synthesis_input, voice=voice, audio_config=audio_config
+        )
+        with open("output.mp3", "wb") as out:
+            out.write(response.audio_content)
+        playsound('/home/dani/Desktop/jar/output.mp3')
+
         text, okPressed = QInputDialog.getText(self, "Get text", "Software: ", QLineEdit.Normal, "")
         with con:
             if okPressed and text != '':
                 software = text
                 con.execute(f"update life_app_main set software='{software}' where id={currId}")
+
     def veggies(self):
+
+        client = texttospeech.TextToSpeechClient()
+        synthesis_input = texttospeech.SynthesisInput(text="veggie")
+        voice = texttospeech.VoiceSelectionParams(
+            language_code="en-US", ssml_gender=texttospeech.SsmlVoiceGender.NEUTRAL
+        )
+        audio_config = texttospeech.AudioConfig(
+            audio_encoding=texttospeech.AudioEncoding.MP3
+        )
+        response = client.synthesize_speech(
+            input=synthesis_input, voice=voice, audio_config=audio_config
+        )
+        with open("output.mp3", "wb") as out:
+            out.write(response.audio_content)
+        playsound('/home/dani/Desktop/jar/output.mp3')
+
         text, okPressed = QInputDialog.getText(self, "Get text", "veggies: ", QLineEdit.Normal, "")
         with con:
             if okPressed and text != '':
                 veggies = text
                 con.execute(f"update life_app_main set veggies='{veggies}' where id={currId}")
+
     def nexAct(self):
+
+        client = texttospeech.TextToSpeechClient()
+        synthesis_input = texttospeech.SynthesisInput(text="Next activity")
+        voice = texttospeech.VoiceSelectionParams(
+            language_code="en-US", ssml_gender=texttospeech.SsmlVoiceGender.NEUTRAL
+        )
+        audio_config = texttospeech.AudioConfig(
+            audio_encoding=texttospeech.AudioEncoding.MP3
+        )
+        response = client.synthesize_speech(
+            input=synthesis_input, voice=voice, audio_config=audio_config
+        )
+        with open("output.mp3", "wb") as out:
+            out.write(response.audio_content)
+        playsound('/home/dani/Desktop/jar/output.mp3')
+
         text, okPressed = QInputDialog.getText(self, "Get text", "Next activity: ", QLineEdit.Normal, "")
         with con:
             if okPressed and text != '':
